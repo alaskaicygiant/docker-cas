@@ -13,8 +13,8 @@ RUN apk update && \
     mv cas-overlay/etc/* /etc/cas/ && \
     mv cas/bin/*.* cas-overlay/bin/ && \
     chmod -R 750 cas-overlay/bin cas-overlay/mvnw && \
-    mv cas/src/main/webapp/ cas-overlay/src/main/ && \
-    mv cas/thekeystore /etc/cas/jelly/thekeystore && \
+    mv /cas/src/main/webapp/ cas-overlay/src/main/ && \
+    mv /cas/thekeystore /etc/cas/jelly/thekeystore && \
     cd /cas-overlay && \
     ./mvnw clean package && \
     apk del openssh-client git && \
