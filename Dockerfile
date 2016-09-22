@@ -10,7 +10,7 @@ RUN apk update && \
     git clone -b 5.0 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay && \
     git clone -b dockerized-caswebapp --single-branch https://github.com/apereo/cas.git cas && \
     mkdir -p /etc/cas/jetty cas-overlay/bin cas-overlay/src/main && \
-    cp cas-overlay/etc/*.* /etc/cas && \
+    mv cas-overlay/etc/* /etc/cas/ && \
     mv cas/src/main/webapp/ cas-overlay/src/main/ && \
     mv cas/thekeystore /etc/cas/jelly/ && \
     mv cas/bin/*.* cas-overlay/bin/ && \
