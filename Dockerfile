@@ -12,7 +12,7 @@ RUN apk update && \
     mkdir -p /etc/cas/jetty cas-overlay/bin cas-overlay/src/main && \
     mv cas-overlay/etc/* /etc/cas/ && \
     mv cas/src/main/webapp/ cas-overlay/src/main/ && \
-    mv cas/thekeystore /etc/cas/jelly/ && \
+    mv cas/thekeystore /etc/cas/jelly/thekeystore && \
     mv cas/bin/*.* cas-overlay/bin/ && \
     chmod -R 750 cas-overlay/bin cas-overlay/mvnw && \
     cd /cas-overlay && \
