@@ -7,7 +7,7 @@ USER root
 RUN apk update && \
     apk add openssh-client git && \
     cd / && \
-    git clone -b 4.2 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay && \
+    git clone -b 4.2.x --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay && \
     git clone -b dockerized-caswebapp --single-branch https://github.com/apereo/cas.git cas && \
     mkdir -p /etc/cas/jetty cas-overlay/bin cas-overlay/src/main && \
     cp cas-overlay/etc/*.* /etc/cas && \
