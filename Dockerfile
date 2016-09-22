@@ -5,9 +5,9 @@ MAINTAINER Owen Ouyang <owen.ouyang@live.com>
 USER root
 
 RUN apk update && \
-    apk add openssh-client git && \
+    apk add --nocache --update openssh-client git && \
     cd / && \
-    git clone -b 4.2.x --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay && \
+    git clone -b 5.0 --single-branch https://github.com/apereo/cas-overlay-template.git cas-overlay && \
     git clone -b dockerized-caswebapp --single-branch https://github.com/apereo/cas.git cas && \
     mkdir -p /etc/cas/jetty cas-overlay/bin cas-overlay/src/main && \
     cp cas-overlay/etc/*.* /etc/cas && \
@@ -16,7 +16,10 @@ RUN apk update && \
     mv cas/bin/*.* cas-overlay/bin/ && \
     chmod -R 750 cas-overlay/bin cas-overlay/mvnw && \
     cd /cas-overlay && \
-    ./mvnw clean package
+    ./mvnw clean package && \
+    apk del openssh-client git && \
+    rm -rf cas
+    
     
 WORKDIR /cas-overlay
 
